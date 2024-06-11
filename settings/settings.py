@@ -46,7 +46,7 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    
+    'apps.account',
 ]
 
 THIRD_APPS = [
