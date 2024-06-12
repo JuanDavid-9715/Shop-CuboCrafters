@@ -4,14 +4,14 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Hola {{ user.username }}</h1>
-
-        {% comment %} <form method="post" action="{% url '' %}">
+        <form method="post" action="{% url 'logOut' %}">
             {% csrf_token %}
-            <button type="submit">logout</button>
-        </form> {% endcomment %}
+            <button type="submit">LogOut</button>
+        </form>
+
+        <h1>Hola {{ user.username }}</h1>
     {% else %}
         <a href="{% url 'signUp' %}">SignUp</a>
-        {% comment %} <a href="{% url '' %}">Iniciar sesión</a> {% endcomment %}
+        <a href="{% url 'logIn' %}">LogIn</a>
     {% endif %}
 {% endblock content %}
