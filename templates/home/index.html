@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block header %}HOME{% endblock header %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Hola {{ user.username }}</h1>
+
+        {% comment %} <form method="post" action="{% url '' %}">
+            {% csrf_token %}
+            <button type="submit">logout</button>
+        </form> {% endcomment %}
+    {% else %}
+        <a href="{% url 'signUp' %}">SignUp</a>
+        {% comment %} <a href="{% url '' %}">Iniciar sesión</a> {% endcomment %}
+    {% endif %}
+{% endblock content %}
