@@ -35,7 +35,6 @@ ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=[]))
 
 
 # Application definition
-
 BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +47,7 @@ BASE_APPS = [
 LOCAL_APPS = [
     'apps.home',
     'apps.account',
+    'apps.products',
 ]
 
 THIRD_APPS = [

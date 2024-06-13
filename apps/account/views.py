@@ -7,7 +7,6 @@ from .forms import SignUpForm
 from .models import Profile
 
 class SignUpView(FormView):
-    model = Profile
     form_class = SignUpForm
     template_name = 'account/signUp.html'
 
