@@ -7,3 +7,6 @@ class Products(models.Model):
     url_img = models.CharField(max_length=100)
     categories_name = models.ManyToManyField("Categories", related_name='products')
     promotions_name = models.ManyToManyField("Promotions", related_name='products')
+
+    def __str__(self):
+        return f"{self.name}, {self.price}, {self.description}"

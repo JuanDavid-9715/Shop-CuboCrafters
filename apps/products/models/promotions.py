@@ -6,3 +6,6 @@ class Promotions(models.Model):
     discount = models.IntegerField()
     description = models.TextField(blank=True)
     url_img = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return f"{self.name}, {self.price}, {self.discount}, {self.description}"
