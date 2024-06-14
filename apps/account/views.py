@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import login, authenticate
 
 from .forms import SignUpForm
 from .models import Profile
 
-class SignUpView(CreateView):
+class SignUpCreateView(CreateView):
     form_class = SignUpForm
     template_name = 'account/signUp.html'
 

@@ -1,20 +1,20 @@
 from django.contrib import admin
 
-from .models.categories import Categories
-from .models.promotions import Promotions
-from .models.products import Products
+from .models.category import Category
+from .models.promotion import Promotion
+from .models.product import Product
 
-@admin.register(Categories)
+@admin.register(Category)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("name", "description")
     search_fields = ("name__startswith", )
 
-@admin.register(Promotions)
+@admin.register(Promotion)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("name", "price", "discount", "description")
     search_fields = ("name__startswith", )
 
-@admin.register(Products)
+@admin.register(Product)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ("name", "price", "description")
     search_fields = ("name__startswith", )
