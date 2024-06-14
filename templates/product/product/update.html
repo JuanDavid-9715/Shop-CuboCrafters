@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block header %}Update product{% endblock header %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" name="submit">
+    </form>
+
+    <hr>
+
+    <a href="{% url 'products' %}">Products</a>
+{% endblock content %}

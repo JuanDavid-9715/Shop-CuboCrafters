@@ -24,12 +24,19 @@
     {% endif %}
 
     <ul>
-        {% for object in object_list %}
+        {% for category in category_list %}
             <li>
-                <p>name: {{object.name}}</p>
-                <p>description: {{object.description}}</p>
-                <a href="{% url 'updateCategory' object.id %}">update</a>
-                <a href="{% url 'deleteCategory' object.id %}">delete</a>
+                <p>name: {{category.name}}</p>
+                <p>description: {{category.description}}</p>
+
+                {% for product in category.product_id.all %}
+                    <div>
+                        <p>name: {{product.name}}</p> 
+                    </div>
+                {% endfor %}
+
+                <a href="{% url 'updateCategory' category.id %}">update</a>
+                <a href="{% url 'deleteCategory' category.id %}">delete</a>
             </li>
         {% endfor %}
     </ul>

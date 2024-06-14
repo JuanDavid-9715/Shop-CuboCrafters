@@ -10,6 +10,8 @@ from ..forms import PromotionForm
 
 class PromotionListView(ListView):
     model = Promotion
+    paginate_by = 10
+    context_object_name = 'promotion_list'
     template_name = "product/promotion/list.html"
 
     def get_queryset(self):

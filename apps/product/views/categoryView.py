@@ -10,6 +10,8 @@ from ..forms import CategoryForm
 
 class CategoryListView(ListView):
     model = Category
+    paginate_by = 10
+    context_object_name = 'category_list'
     template_name = "product/category/list.html"
 
     def get_queryset(self):

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block header %}Products{% endblock header %}
+
+{% block content %}
+    <a href="{% url 'home' %}">home</a>
+    <a href="{% url 'addProduct' %}">AddProduct</a>
+
+    <hr>
+
+    <form action="" method="GET">
+        {% csrf_token %}
+        <input type="text" placeholder="Search..." name="product">
+
+        <input type="submit" name="submit">
+    </form>
+
+    <hr>
+
+    {% if "ok" in request.GET.update|slice:"0:2" %}
+        <div>
+            <p>The {{request.GET.update|slice:"3:100"}} Product was successfully updated</p>
+        </div>
+    {% endif %}
+
+    <ul>
+        {% for product in product_list %}
+            <hr>
+            <p>name: {{product.name}}</p> 
+            <p>price: {{product.price}}</p> 
+            <p>description: {{product.description}}</p> 
+
+            {% for category in product.category_id.all %}
+                <div>
+                    <p>name: {{category.name}}</p> 
+                </div>
+            {% endfor %}
+
+            {% for promotion in product.promotion_id.all %}
+                <div>
+                    <p>name: {{promotion.name}}</p> 
+                </div>
+            {% endfor %}
+            
+            <a href="{% url 'updateProduct' product.id %}">update</a>
+            <a href="{% url 'deleteProduct' product.id %}">delete</a>
+            <hr>
+        {% endfor %}
+    </ul>
+{% endblock content %}

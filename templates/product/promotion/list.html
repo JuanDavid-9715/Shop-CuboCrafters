@@ -24,14 +24,21 @@
     {% endif %}
 
     <ul>
-        {% for object in object_list %}
+        {% for promotion in promotion_list %}
             <li>
-                <p>name: {{object.name}}</p>
-                <p>price: {{object.price}}</p>
-                <p>discount: {{object.discount}}</p>
-                <p>description: {{object.description}}</p>
-                <a href="{% url 'updatePromotion' object.id %}">update</a>
-                <a href="{% url 'deletePromotion' object.id %}">delete</a>
+                <p>name: {{promotion.name}}</p>
+                <p>price: {{promotion.price}}</p>
+                <p>discount: {{promotion.discount}}</p>
+                <p>description: {{promotion.description}}</p>
+
+                {% for product in promotion.product_id.all %}
+                    <div>
+                        <p>name: {{product.name}}</p> 
+                    </div>
+                {% endfor %}
+
+                <a href="{% url 'updatePromotion' promotion.id %}">update</a>
+                <a href="{% url 'deletePromotion' promotion.id %}">delete</a>
             </li>
         {% endfor %}
     </ul>
