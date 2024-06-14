@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block header %}Promotions{% endblock header %}
+
+{% block content %}
+    <a href="{% url 'home' %}">home</a>
+    <a href="{% url 'addPromotion' %}">AddPromotion</a>
+
+    <hr>
+
+    <form action="" method="GET">
+        {% csrf_token %}
+        <input type="text" placeholder="Search..." name="promotion">
+
+        <input type="submit" name="submit">
+    </form>
+
+    <hr>
+
+    {% if "ok" in request.GET.update|slice:"0:2" %}
+        <div>
+            <p>The {{request.GET.update|slice:"3:100"}} Promotion was successfully updated</p>
+        </div>
+    {% endif %}
+
+    <ul>
+        {% for object in object_list %}
+            <li>
+                <p>name: {{object.name}}</p>
+                <p>price: {{object.price}}</p>
+                <p>discount: {{object.discount}}</p>
+                <p>description: {{object.description}}</p>
+                <a href="{% url 'updatePromotion' object.id %}">update</a>
+                <a href="{% url 'deletePromotion' object.id %}">delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

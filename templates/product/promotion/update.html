@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block header %}Update promotion{% endblock header %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" name="submit">
+    </form>
+
+    <hr>
+
+    <a href="{% url 'promotions' %}">Promotions</a>
+{% endblock content %}
