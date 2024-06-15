@@ -3,7 +3,7 @@
 {% block header %}Update category{% endblock header %}
 
 {% block content %}
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 

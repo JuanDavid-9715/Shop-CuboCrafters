@@ -32,12 +32,14 @@
 
             {% for category in product.category_id.all %}
                 <div>
+                    <h3>Category</h3>
                     <p>name: {{category.name}}</p> 
                 </div>
             {% endfor %}
 
             {% for promotion in product.promotion_id.all %}
                 <div>
+                    <h3>Promotion</h3>
                     <p>name: {{promotion.name}}</p> 
                 </div>
             {% endfor %}
