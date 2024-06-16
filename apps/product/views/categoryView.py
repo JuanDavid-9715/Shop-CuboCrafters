@@ -15,10 +15,13 @@ class CategoryListView(ListView):
     template_name = "product/category/list.html"
 
     def get_queryset(self):
+        field = 'name'
         category_name = self.request.GET.get("category")
 
         if category_name:
-            return Category.objects.filter(Q(name=category_name)).distinct()
+            qs = "MATCH({}) AGAINST('+{}*' IN BOOLEAN MODE)".format(field, category_name)
+
+            return Category.objects.extra(where=[qs])
 
         return super().get_queryset()
 

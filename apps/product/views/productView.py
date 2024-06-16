@@ -17,10 +17,13 @@ class ProductListView(ListView):
     template_name = "product/product/list.html"
 
     def get_queryset(self):
+        field = 'name'
         product_name = self.request.GET.get("product")
 
         if product_name:
-            return Promotion.objects.filter(Q(name=product_name)).distinct()
+            qs = "MATCH({}) AGAINST('+{}*' IN BOOLEAN MODE)".format(field, product_name)
+
+            return Product.objects.extra(where=[qs])
 
         return super().get_queryset()
 

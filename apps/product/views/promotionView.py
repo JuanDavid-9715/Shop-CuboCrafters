@@ -15,10 +15,13 @@ class PromotionListView(ListView):
     template_name = "product/promotion/list.html"
 
     def get_queryset(self):
+        field = 'name'
         promotion_name = self.request.GET.get("promotion")
 
         if promotion_name:
-            return Promotion.objects.filter(Q(name=promotion_name)).distinct()
+            qs = "MATCH({}) AGAINST('+{}*' IN BOOLEAN MODE)".format(field, promotion_name)
+
+            return Promotion.objects.extra(where=[qs])
 
         return super().get_queryset()
 
