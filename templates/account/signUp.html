@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
 
 {% block header %}SingUp{% endblock header %}
 
 {% block content %}
-    <form action="" method="POST">
+    <form action="" method="POST" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% bootstrap_form form %}
 
-        <input type="submit" name="submit">
+        {% bootstrap_button "Save" button_type="submit" button_class="btn-primary" extra_classes="btn" style="--bs-btn-padding-y: .3rem; --bs-btn-padding-x: 3rem;" %}
     </form>
 {% endblock content %}
