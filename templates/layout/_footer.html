@@ -1,0 +1,83 @@
+{% load static %}
+
+<div class="container-fluid pt-3 px-0 bg-body-tertiary">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-around align-items-stretch px-5 pb-3">
+            <a class="navbar-brand me-auto" href="{% url 'home' %}">
+                {% comment %} <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="CuboCrafters" width="30" height="24"> {% endcomment %}
+                <i class="bi bi-house-fill d-inline fs-2"></i>
+                <h3 class="d-inline">CuboCrafters</h3>
+            </a>
+            <div class="d-flex align-items-center">
+                <form class="d-flex" role="search">
+                    <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around align-items-stretch pt-5 px-5 bg-dark-subtle">
+            <div class="d-flex flex-column w-25 pt-3">
+                <h4 class="">Sobre CuboCrafters</h4>
+                <p class="">En CuboCrafters, nos apasionan los desafíos y la diversión que ofrecen los cubos Rubik y otros puzles. Nuestra misión es proporcionar una amplia variedad de productos de alta calidad para aficionados y expertos, promoviendo el ingenio y la creatividad.</p>
+                <h4 class="">Síguenos</h4>
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <a class="btn btn-outline-primary" role="button" href="#">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <a class="btn btn-outline-primary " role="button" href="#">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <a class="btn btn-outline-primary" role="button" href="#">
+                            <i class="bi bi-threads"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <a class="btn btn-outline-primary" role="button" href="#">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <a class="btn btn-outline-primary" role="button" href="#">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex flex-column pt-3">
+                <h4 class="">Contacto</h4>
+                <ul class="list-group">
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <h6>Correo Electrónico:</h6> 
+                        <p class="mb-1">info@cubocrafters.com</p>
+                    </li>
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <h6>Teléfono:</h6> 
+                        <p  class="mb-1">+34 123 456 789</p>
+                    </li>
+                    <li class="list-group-item border-0 p-1 bg-transparent">
+                        <h6>Dirección:</h6> 
+                        <p  class="mb-1">Calle Ejemplo, 123, Ciudad, País</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="pt-3">
+                <img 
+                    src="{% static 'img/footer.webp' %}" 
+                    alt="" 
+                    width="250rem">
+            </div>
+        </div>
+    </div>
+
+
+</div>
