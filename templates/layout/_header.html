@@ -1,0 +1,72 @@
+{% load django_bootstrap5 %}
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid px-5">
+        <a class="navbar-brand me-5" href="{% url 'home' %}">
+            {% comment %} <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="CuboCrafters" width="30" height="24"> {% endcomment %}
+            <i class="bi bi-house-fill fs-2"></i>
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex me-auto" role="search">
+                <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="d-flex justify-content-center align-items-center">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center">
+                    <li class="nav-item align-self-center m-100">
+                        <a class="nav-link" role="button" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item align-self-center">
+                        <a class="nav-link" role="button" href="#">Category</a>
+                    </li>
+                    <li class="nav-item align-self-center">
+                        <a class="nav-link" role="button" href="{% url 'home' %}">Product</a>
+                    </li>
+                    <li class="nav-item align-self-center">
+                        <a class="nav-link" role="button" href="{% url 'home' %}">Promotrion</a>
+                    </li>
+                    <ul class="navbar-nav mx-4 d-flex justify-content-center align-items-center">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item mx-0">
+                                <a class="navbar-brand" role="button" href="{% url 'home' %}">
+                                    <i class="bi bi-cart3 fs-2"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-0">
+                                <a class="navbar-brand" role="button" href="{% url 'home' %}">
+                                    <i class="bi bi-person-fill fs-2"></i>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item align-self-center">
+                                <a class="btn" role="button" href="{% url 'logIn' %}">Login</a>
+                            </li>
+                            <li class="nav-item align-self-center">
+                                <a class="btn btn-outline-primary" role="button" href="{% url 'signUp' %}">Signup</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
