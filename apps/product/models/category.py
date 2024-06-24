@@ -67,6 +67,9 @@ class Category(models.Model):
                 img = img.crop((left, top, right, bottom))
                 img.save(self.img.path)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return f"{self.name}, {self.description}"
     

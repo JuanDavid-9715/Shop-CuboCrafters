@@ -3,21 +3,64 @@
 
 {% block content %}
     <section class="container-fluid">
-        <div class="row d-flex flex-column-reverse flex-md-row justify-content-center align-items-center">
+        <div class="row d-flex flex-column-reverse flex-md-row justify-content-center align-items-center mb-4">
             <div class="col-10 col-md-4 d-flex flex-column align-items-center text-center mb-5">
-                <div class="pt-5 px-5">
+                <div class="px-5">
                     <p>
                         Welcome to CuboCrafters! Discover our selection of Rubik's cubes and puzzles, designed to challenge your mind and spark your creativity. Find the perfect challenge and take your passion for puzzles to the next level. Explore, enjoy, and shop today!
                     </p>
                 </div>
                 <a class="btn btn-primary w-50" role="button" href="{% url 'home' %}">Buy now</a>
             </div>
-            <div class="col-10 col-md-6 text-center">
-                <img src="{% static 'img/home.webp' %}" alt="home" class="img-fluid">
+            <div class="col-10 col-md-6 my-4 text-center">
+                <img src="{% static 'img/layout/home.webp' %}" alt="home" class="img-fluid">
             </div>
         </div>
     </section>
-    <section></section>
+    <section class="container-fluid"> 
+        <nav class="d-flex justify-content-between mb-2" aria-label="Page navigation example">
+            <div>
+                <h2>Browse by category</h2>
+            </div>
+            <ul class="pagination">
+                <li class="page-item">
+                    {% if page_obj.has_previous %}
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <i class="bi bi-caret-left-fill"></i>
+                        </a>
+                    {% else %}
+                        <div class="page-link">
+                            <i class="bi bi-caret-left-fill" aria-hidden="true"></i>
+                        </div>
+                    {% endif %}
+                </li>
+                <li class="page-item">
+                    {% if page_obj.has_next %}
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }} "  aria-label="Next">
+                            <i class="bi bi-caret-right-fill"></i>
+                        </a>
+                    {% else %}
+                        <div class="page-link">
+                            <i class="bi bi-caret-right-fill" aria-hidden="true"></i>
+                        </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+
+        <div class="d-flex justify-content-evenly gap-2 gap-md-5 px-2 mb-4 text-center" style="height: 200px;">
+            {% for category in category_list %}
+                <div class="card h-100">
+                    <a href="#" class="link-dark h-100" style="text-decoration: none;">
+                        <img src="/media/{{ category.img }}" class="card-img-top h-75" alt="img {{ category.name }}">
+                        <div class="card-body">
+                            <h6 class="card-title">{{ category.name }}</h6>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
     <section></section>
     <section></section>
 {% endblock content %}

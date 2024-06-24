@@ -21,6 +21,7 @@ class Promotion(models.Model):
         default='default/errorPromotion.webp',
         upload_to=img_path 
     )
+    active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if self.pk and self.img.name != 'default/errorPromotion.webp':
