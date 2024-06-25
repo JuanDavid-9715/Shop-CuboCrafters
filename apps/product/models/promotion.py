@@ -14,6 +14,7 @@ def img_path(instance, filename):
 
 class Promotion(models.Model):
     name = models.CharField(max_length=100)
+    original_price = models.FloatField()
     price = models.FloatField()
     discount = models.IntegerField()
     description = models.TextField(blank=True)
